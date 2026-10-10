@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KL Nut | Nutrición real</title>
+<meta name="description" content="KL Nut: frutos secos 100% naturales para personas que se mueven. Pedí por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --negro:#161616;
+    --negro-2:#1f1f1f;
+    --hueso:#f8f6f1;
+    --verde:#6ab42d;
+    --verde-osc:#559623;
+    --kraft:#c4a47c;
+    --bronce:#b88a4a;
+    --gris:#6b6b66;
+    --linea:#e4e0d6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--hueso);color:var(--negro);line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+
+  /* Wordmark KL NUT */
+  .marca{display:inline-flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none}
+  .marca .kl{font-family:"Archivo Black",Impact,sans-serif;letter-spacing:-.04em;font-size:2.4rem}
+  .marca .nut{display:flex;align-items:center;gap:.5em;font-weight:700;color:var(--verde);letter-spacing:.5em;font-size:.72rem;margin-top:.25rem}
+  .marca .nut::before,.marca .nut::after{content:"";width:1.6rem;height:2px;background:var(--verde)}
+  .marca .nut span{margin-right:-.5em}
+  .marca.claro .kl{color:var(--hueso)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:20;background:rgba(248,246,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
+  .nav ul{display:flex;gap:1.6rem;list-style:none;align-items:center}
+  .nav a.link{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--gris)}
+  .nav a.link:hover{color:var(--negro)}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--verde);color:#fff;border:0;padding:.85rem 1.5rem;font:600 .85rem Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:2px;transition:background .15s}
+  .btn:hover{background:var(--verde-osc)}
+  .btn.oscuro{background:var(--negro)}
+  .btn.oscuro:hover{background:#333}
+  .btn.borde{background:transparent;color:var(--negro);box-shadow:inset 0 0 0 1.5px var(--negro)}
+  .btn.borde:hover{background:var(--negro);color:var(--hueso)}
+  .carrito-btn{position:relative}
+  .carrito-btn .n{background:var(--negro);color:#fff;border-radius:99px;font-size:.7rem;min-width:1.35rem;height:1.35rem;display:inline-grid;place-items:center;padding:0 .3rem}
+
+  /* Hero */
+  .hero{background:var(--negro);color:var(--hueso);overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;padding:5.5rem 0 5rem}
+  .eyebrow{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--verde);font-weight:600;margin-bottom:1.2rem}
+  .hero h1{font-family:"Archivo Black",Impact,sans-serif;font-weight:400;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1;letter-spacing:-.02em}
+  .hero h1 em{font-style:normal;color:var(--verde)}
+  .hero p.sub{margin-top:1.4rem;max-width:34rem;color:#cfccc3;font-size:1.05rem}
+  .hero .acciones{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
+  .hero .btn.borde{color:var(--hueso);box-shadow:inset 0 0 0 1.5px rgba(248,246,241,.5)}
+  .hero .btn.borde:hover{background:var(--hueso);color:var(--negro)}
+
+  /* Bolsa decorativa */
+  .bolsa-wrap{display:grid;place-items:center}
+  .bolsa{width:min(280px,70vw);aspect-ratio:3/4.1;background:linear-gradient(160deg,#2a2a2a,#121212);border-radius:14px 14px 22px 22px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.05);display:flex;flex-direction:column;align-items:center;padding-top:22%}
+  .bolsa::before{content:"";position:absolute;top:0;left:0;right:0;height:7%;background:rgba(255,255,255,.06);border-radius:14px 14px 0 0}
+  .bolsa .kl{font-family:"Archivo Black",Impact,sans-serif;font-size:4.2rem;letter-spacing:-.04em;line-height:1;color:var(--hueso)}
+  .bolsa .nut{display:flex;align-items:center;gap:.6em;color:var(--hueso);letter-spacing:.5em;font-size:.7rem;font-weight:600;margin-top:.5rem}
+  .bolsa .nut::before,.bolsa .nut::after{content:"";width:1.3rem;height:1px;background:var(--bronce)}
+  .bolsa small{margin-top:auto;margin-bottom:12%;text-align:center;color:#bdb9ae;font-size:.62rem;letter-spacing:.2em;line-height:1.8;text-transform:uppercase}
+  .bolsa small b{display:block;color:var(--hueso);font-size:.85rem;letter-spacing:.1em;margin-top:.6rem;padding-top:.7rem;border-top:1px solid var(--bronce)}
+
+  /* Franja lema */
+  .lema{background:var(--negro-2);color:#cfccc3;border-top:1px solid #2c2c2c}
+  .lema .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem 1.5rem;padding:1.1rem 0;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase}
+  .lema span+span::before{content:"|";margin-right:1.5rem;color:var(--bronce)}
+
+  /* Secciones */
+  section{padding:5rem 0}
+  .titulo{max-width:36rem;margin-bottom:2.6rem}
+  .titulo h2{font-family:"Archivo Black",Impact,sans-serif;font-weight:400;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.05;letter-spacing:-.02em}
+  .titulo p{color:var(--gris);margin-top:.8rem}
+  .titulo .eyebrow{margin-bottom:.8rem}
+
+  /* Valores */
+  .valores{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+  .valor{padding:2rem 1.2rem;text-align:center}
+  .valor+.valor{border-left:1px solid var(--linea)}
+  .valor svg{width:38px;height:38px;stroke:var(--bronce);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin:0 auto 1rem}
+  .valor h3{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+  .valor p{font-size:.88rem;color:var(--gris);margin-top:.3rem}
+
+  /* Catálogo */
+  #productos{background:#fff;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+  .grilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.4rem}
+  .prod{background:var(--hueso);border:1px solid var(--linea);display:flex;flex-direction:column}
+  .prod .cabeza{background:var(--negro);color:var(--hueso);padding:1.6rem 1.2rem;text-align:center;position:relative}
+  .prod .cabeza::after{content:"";position:absolute;left:1.2rem;right:1.2rem;bottom:.7rem;height:1px;background:var(--bronce);opacity:.7}
+  .prod .emoji{font-size:2.2rem;line-height:1}
+  .prod .cabeza .tag{display:block;margin-top:.7rem;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--verde);font-weight:600}
+  .prod .cuerpo{padding:1.2rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+  .prod h3{font-size:1.05rem}
+  .prod p{font-size:.88rem;color:var(--gris);flex:1}
+  .prod .precio{font-weight:700;font-size:1.1rem}
+  .prod .precio small{font-weight:500;color:var(--gris);font-size:.78rem}
+  .prod .fila{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:.4rem}
+  .cant{display:inline-flex;align-items:center;border:1.5px solid var(--negro);border-radius:2px}
+  .cant button{background:none;border:0;width:2rem;height:2.2rem;font-size:1.1rem;cursor:pointer}
+  .cant button:hover{background:var(--negro);color:#fff}
+  .cant span{min-width:1.8rem;text-align:center;font-weight:600;font-size:.9rem}
+  .prod .btn{padding:.7rem 1rem;font-size:.75rem}
+
+  /* Cómo comprar */
+  .pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;counter-reset:p}
+  .paso{border-top:2px solid var(--verde);padding-top:1.1rem;counter-increment:p}
+  .paso::before{content:"0" counter(p);font-family:"Archivo Black",Impact,sans-serif;font-size:1.6rem;color:var(--kraft)}
+  .paso h3{margin:.4rem 0 .3rem;font-size:1.05rem}
+  .paso p{color:var(--gris);font-size:.92rem}
+  .pagos{margin-top:2.4rem;background:var(--negro);color:var(--hueso);padding:1.8rem;display:flex;flex-wrap:wrap;gap:1.2rem 2.5rem;align-items:center;justify-content:space-between}
+  .pagos h3{font-size:1.1rem}
+  .pagos p{color:#bdb9ae;font-size:.9rem;margin-top:.2rem}
+  .alias{display:inline-flex;gap:.6rem;align-items:center;background:var(--negro-2);border:1px solid #333;padding:.6rem .9rem;font-size:.95rem}
+  .alias b{color:var(--verde);letter-spacing:.04em}
+  .alias button{background:none;border:0;color:var(--kraft);cursor:pointer;font:600 .72rem Inter;letter-spacing:.1em;text-transform:uppercase}
+
+  /* Contacto / footer */
+  #contacto{background:var(--kraft);}
+  #contacto .caja{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:center}
+  #contacto h2{font-family:"Archivo Black",Impact,sans-serif;font-weight:400;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.05;letter-spacing:-.02em}
+  #contacto p{margin-top:.8rem;max-width:30rem}
+  .contacto-links{display:flex;flex-direction:column;gap:.8rem;align-items:flex-start}
+  footer{background:var(--negro);color:#bdb9ae;padding:2.6rem 0 2rem}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.2rem}
+  footer small{font-size:.75rem;letter-spacing:.1em}
+
+  /* Carrito lateral */
+  .velo{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .2s;z-index:40}
+  .velo.on{opacity:1;pointer-events:auto}
+  .panel{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--hueso);z-index:50;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column}
+  .panel.on{transform:none}
+  .panel header{position:static;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.3rem;background:var(--negro);color:var(--hueso);border:0}
+  .panel header h3{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase}
+  .panel header button{background:none;border:0;color:var(--hueso);font-size:1.6rem;cursor:pointer;line-height:1}
+  .items{flex:1;overflow:auto;padding:1rem 1.3rem}
+  .item{display:flex;justify-content:space-between;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--linea)}
+  .item b{display:block;font-size:.95rem}
+  .item small{color:var(--gris)}
+  .item .der{text-align:right}
+  .item .quitar{background:none;border:0;color:var(--gris);font-size:.75rem;text-decoration:underline;cursor:pointer;margin-top:.2rem}
+  .vacio{color:var(--gris);text-align:center;margin-top:3rem}
+  .pie{padding:1.2rem 1.3rem;border-top:1px solid var(--linea);background:#fff}
+  .pie .total{display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem;margin-bottom:.8rem}
+  .pie input,.pie textarea{width:100%;padding:.7rem .8rem;border:1px solid #cfcabc;background:var(--hueso);font:inherit;font-size:.9rem;margin-bottom:.6rem;border-radius:2px}
+  .pie .btn{width:100%;justify-content:center}
+  .nota{font-size:.75rem;color:var(--gris);margin-top:.6rem;text-align:center}
+
+  .wsp-flotante{position:fixed;right:18px;bottom:18px;z-index:30;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+  .wsp-flotante svg{width:28px;height:28px;fill:#fff}
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;padding:3.5rem 0}
+    .bolsa-wrap{order:-1}
+    .bolsa{width:200px}
+    .valores{grid-template-columns:1fr 1fr}
+    .valor:nth-child(3){border-left:0}
+    .valor:nth-child(n+3){border-top:1px solid var(--linea)}
+    .valor:nth-child(2){border-left:1px solid var(--linea)}
+    .valor:nth-child(5){grid-column:1 / -1;border-left:0}
+    .pasos{grid-template-columns:1fr}
+    #contacto .caja{grid-template-columns:1fr}
+    .nav ul li.oculto{display:none}
+    .lema span+span::before{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="marca" aria-label="KL Nut"><span class="kl">KL</span><span class="nut"><span>NUT</span></span></a>
+    <ul>
+      <li class="oculto"><a class="link" href="#productos">Productos</a></li>
+      <li class="oculto"><a class="link" href="#como-comprar">Cómo comprar</a></li>
+      <li class="oculto"><a class="link" href="#contacto">Contacto</a></li>
+      <li><button class="btn carrito-btn" id="abrirCarrito" type="button">Mi pedido <span class="n" id="contador">0</span></button></li>
+    </ul>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Frutos secos 100% naturales</p>
+        <h1>Nutrición real para quienes <em>se mueven</em>.</h1>
+        <p class="sub">Ingredientes de calidad, sabor real y sin vueltas. Energía para seguir adelante y volver a sentirte bien.</p>
+        <div class="acciones">
+          <a class="btn" href="#productos">Ver productos</a>
+          <a class="btn borde" href="#como-comprar">Cómo comprar</a>
+        </div>
+      </div>
+      <div class="bolsa-wrap" aria-hidden="true">
+        <div class="bolsa">
+          <div class="kl">KL</div>
+          <div class="nut">NUT</div>
+          <small>Frutos secos<br>100% naturales<b>500 g</b></small>
+        </div>
+      </div>
+    </div>
+    <div class="lema">
+      <div class="wrap">
+        <span>Nutrición real</span><span>Para personas que se mueven</span><span>Volver a sentirse bien</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="valores">
+        <div class="valor">
+          <svg viewBox="0 0 48 48"><path d="M10 38C8 20 20 8 40 8c0 20-10 32-26 30"/><path d="M10 38C16 26 24 20 34 14"/></svg>
+          <h3>Natural</h3><p>Ingredientes de calidad</p>
+        </div>
+        <div class="valor">
+          <svg viewBox="0 0 48 48"><circle cx="30" cy="9" r="4"/><path d="M12 38l8-6 6 2 4-10-8-4-8 6M26 24l10 4 6-4M20 32l-4 8"/></svg>
+          <h3>Movimiento</h3><p>Energía para seguir adelante</p>
+        </div>
+        <div class="valor">
+          <svg viewBox="0 0 48 48"><path d="M4 40l14-24 8 12 6-8 12 20z"/><path d="M18 16l3 5 3-3"/></svg>
+          <h3>Rendimiento</h3><p>Para entrenar y recuperarse</p>
+        </div>
+        <div class="valor">
+          <svg viewBox="0 0 48 48"><path d="M24 40S6 29 6 17a9 9 0 0 1 18-3 9 9 0 0 1 18 3c0 12-18 23-18 23z"/></svg>
+          <h3>Equilibrio</h3><p>Cuerpo y mente en armonía</p>
+        </div>
+        <div class="valor">
+          <svg viewBox="0 0 48 48"><path d="M8 20c4 12 28 12 32 0"/></svg>
+          <h3>Disfrute</h3><p>Sabor real, sin vueltas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos">
+    <div class="wrap">
+      <div class="titulo">
+        <p class="eyebrow">Catálogo</p>
+        <h2>Elegí lo que más te mueve.</h2>
+        <p>Armá tu pedido y mandalo por WhatsApp. Te confirmamos disponibilidad, entrega y forma de pago.</p>
+      </div>
+      <div class="grilla" id="grilla"></div>
+    </div>
+  </section>
+
+  <section id="como-comprar">
+    <div class="wrap">
+      <div class="titulo">
+        <p class="eyebrow">Cómo comprar</p>
+        <h2>Simple y sin vueltas.</h2>
+      </div>
+      <div class="pasos">
+        <div class="paso"><h3>Armá tu pedido</h3><p>Elegí los productos y las cantidades. Vas viendo el total en "Mi pedido".</p></div>
+        <div class="paso"><h3>Envialo por WhatsApp</h3><p>Se abre un chat con tu pedido ya escrito. Te respondemos para coordinar la entrega.</p></div>
+        <div class="paso"><h3>Pagá con Mercado Pago</h3><p>Te pasamos el alias o un link de pago. Una vez acreditado, preparamos tu pedido.</p></div>
+      </div>
+      <div class="pagos">
+        <div>
+          <h3>Pagá con Mercado Pago</h3>
+          <p>Transferí al alias o pedinos el link de pago por WhatsApp.</p>
+        </div>
+        <div class="alias" id="bloqueAlias">
+          <span>Alias: <b id="aliasTexto"></b></span>
+          <button type="button" id="copiarAlias">Copiar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap caja">
+      <div>
+        <h2>Volvé a sentirte bien.</h2>
+        <p>¿Dudas, pedidos por mayor o algo a medida? Escribinos y te respondemos en el día.</p>
+      </div>
+      <div class="contacto-links">
+        <a class="btn oscuro" id="wspContacto" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn borde" id="igContacto" href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="marca claro"><span class="kl">KL</span><span class="nut"><span>NUT</span></span></span>
+    <small>NUTRICIÓN REAL · © <span id="anio"></span> KL NUT</small>
+  </div>
+</footer>
+
+<a class="wsp-flotante" id="wspFlotante" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.4.7 4.7 1.9 6.600L3 29l7.100-2.200c1.800 1 3.800 1.500 5.900 1.500 6.900 0 12.600-5.600 12.600-12.500S22.900 3 16 3zm0 22.600c-1.900 0-3.700-.5-5.300-1.500l-.4-.2-4.200 1.300 1.400-4-.3-.4a10 10 0 0 1-1.600-5.400C5.600 10 10.300 5.400 16 5.400S26.400 10 26.400 15.600 21.700 25.600 16 25.600zm5.600-7.500c-.3-.2-1.800-.9-2.100-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.300 8.300 0 0 1-4.100-3.600c-.3-.5.300-.5.900-1.600.1-.2.100-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.400 1 2.800 1.200 3c.1.200 2 3.200 5 4.400 1.800.8 2.600.9 3.500.7.600-.1 1.800-.7 2-1.400s.3-1.300.2-1.400-.3-.2-.6-.3z"/></svg>
+</a>
+
+<div class="velo" id="velo"></div>
+<aside class="panel" id="panel" aria-label="Mi pedido">
+  <header><h3>Mi pedido</h3><button type="button" id="cerrar" aria-label="Cerrar">×</button></header>
+  <div class="items" id="items"></div>
+  <div class="pie">
+    <div class="total"><span>Total</span><span id="total">$0</span></div>
+    <input id="nombre" placeholder="Tu nombre">
+    <textarea id="nota" rows="2" placeholder="Zona de entrega o comentarios (opcional)"></textarea>
+    <button class="btn" type="button" id="enviar">Enviar pedido por WhatsApp</button>
+    <p class="nota">Después coordinamos entrega y pago con Mercado Pago.</p>
+  </div>
+</aside>
+
+<script>
+/* ================================================
+   CONFIGURACIÓN — editá solo esta parte
+   ================================================ */
+const CONFIG = {
+  // WhatsApp: código de país + código de área + número, SIN +, espacios ni guiones.
+  // Argentina celular: 54 9 + área + número. Ej: 5491155551234
+  whatsapp: "5491100000000",
+  // Alias de Mercado Pago (CBU/CVU alias) para transferencias
+  aliasMP: "kl.nut",
+  // Usuario de Instagram (sin @). Dejalo vacío "" para ocultar el botón
+  instagram: "klnut",
+  // Productos. Cambiá nombres, descripciones y precios por los reales.
+  productos: [
+    { id:"almendras", nombre:"Almendras",          icono:"🌰", tag:"Energía",     desc:"Crocantes y sin sal. Ideales para el día a día.",           unidad:"250 g", precio:6500 },
+    { id:"nueces",    nombre:"Nueces mariposa",    icono:"🥜", tag:"Equilibrio",  desc:"Mitades de nuez, frescas y con sabor intenso.",             unidad:"250 g", precio:6000 },
+    { id:"caju",      nombre:"Castañas de cajú",   icono:"🌰", tag:"Disfrute",    desc:"Suaves y cremosas, perfectas para picar.",                  unidad:"250 g", precio:8200 },
+    { id:"pistacho",  nombre:"Pistachos",          icono:"🥜", tag:"Rendimiento", desc:"Tostados naturales, sin sal agregada.",                     unidad:"250 g", precio:9500 },
+    { id:"mix",       nombre:"Mix KL",             icono:"🥜", tag:"Movimiento",  desc:"Nuestra mezcla de frutos secos y pasas para entrenar.",     unidad:"500 g", precio:10500 },
+    { id:"pasas",     nombre:"Pasas de uva rubias",icono:"🍇", tag:"Natural",     desc:"Dulzor natural, sin azúcar agregada.",                      unidad:"250 g", precio:3200 }
+  ]
+};
+
+/* ================================================ */
+const $ = s => document.querySelector(s);
+const fmt = n => "$" + n.toLocaleString("es-AR");
+let carrito = {};      // id -> cantidad
+let cantTmp = {};      // cantidad elegida en la tarjeta
+
+/* Catálogo */
+$("#grilla").innerHTML = CONFIG.productos.map(p => {
+  cantTmp[p.id] = 1;
+  return `
+  <article class="prod">
+    <div class="cabeza"><div class="emoji">${p.icono}</div><span class="tag">${p.tag}</span></div>
+    <div class="cuerpo">
+      <h3>${p.nombre}</h3>
+      <p>${p.desc}</p>
+      <div class="precio">${fmt(p.precio)} <small>/ ${p.unidad}</small></div>
+      <div class="fila">
+        <div class="cant">
+          <button type="button" data-menos="${p.id}" aria-label="Menos">−</button>
+          <span id="c-${p.id}">1</span>
+          <button type="button" data-mas="${p.id}" aria-label="Más">+</button>
+        </div>
+        <button class="btn" type="button" data-add="${p.id}">Agregar</button>
+      </div>
+    </div>
+  </article>`;
+}).join("");
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("button");
+  if (!t) return;
+  const d = t.dataset;
+  if (d.mas)   { cantTmp[d.mas] = Math.min(20, cantTmp[d.mas] + 1); $("#c-" + d.mas).textContent = cantTmp[d.mas]; }
+  if (d.menos) { cantTmp[d.menos] = Math.max(1, cantTmp[d.menos] - 1); $("#c-" + d.menos).textContent = cantTmp[d.menos]; }
+  if (d.add)   { carrito[d.add] = (carrito[d.add] || 0) + cantTmp[d.add]; cantTmp[d.add] = 1; $("#c-" + d.add).textContent = 1; pintar(); abrir(); }
+  if (d.quitar){ delete carrito[d.quitar]; pintar(); }
+});
+
+function pintar(){
+  const ids = Object.keys(carrito);
+  let total = 0, cant = 0;
+  $("#items").innerHTML = ids.length ? ids.map(id => {
+    const p = CONFIG.productos.find(x => x.id === id);
+    const sub = p.precio * carrito[id];
+    total += sub; cant += carrito[id];
+    return `<div class="item">
+      <div><b>${p.nombre}</b><small>${carrito[id]} × ${p.unidad} · ${fmt(p.precio)}</small></div>
+      <div class="der"><b>${fmt(sub)}</b><button class="quitar" type="button" data-quitar="${id}">Quitar</button></div>
+    </div>`;
+  }).join("") : `<p class="vacio">Todavía no agregaste productos.</p>`;
+  $("#total").textContent = fmt(total);
+  $("#contador").textContent = cant;
+}
+
+const abrir  = () => { $("#panel").classList.add("on"); $("#velo").classList.add("on"); };
+const cerrar = () => { $("#panel").classList.remove("on"); $("#velo").classList.remove("on"); };
+$("#abrirCarrito").addEventListener("click", abrir);
+$("#cerrar").addEventListener("click", cerrar);
+$("#velo").addEventListener("click", cerrar);
+document.addEventListener("keydown", e => { if (e.key === "Escape") cerrar(); });
+
+$("#enviar").addEventListener("click", () => {
+  const ids = Object.keys(carrito);
+  if (!ids.length) { alert("Agregá al menos un producto a tu pedido."); return; }
+  let total = 0;
+  const lineas = ids.map(id => {
+    const p = CONFIG.productos.find(x => x.id === id);
+    const sub = p.precio * carrito[id]; total += sub;
+    return `• ${carrito[id]} × ${p.nombre} (${p.unidad}) — ${fmt(sub)}`;
+  });
+  const nombre = $("#nombre").value.trim();
+  const nota = $("#nota").value.trim();
+  const msg = [
+    "Hola KL Nut! Quiero hacer este pedido:",
+    "",
+    ...lineas,
+    "",
+    "Total: " + fmt(total),
+    nombre ? "Nombre: " + nombre : "",
+    nota ? "Comentarios: " + nota : "",
+    "",
+    "¿Cómo coordinamos entrega y pago?"
+  ].filter((l, i, a) => l !== "" || a[i-1] !== "").join("\n");
+  window.open("https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg), "_blank");
+});
+
+/* Contacto */
+const wspBase = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Hola KL Nut! Quería consultar por ");
+$("#wspContacto").href = wspBase;
+$("#wspFlotante").href = wspBase;
+if (CONFIG.instagram) $("#igContacto").href = "https://instagram.com/" + CONFIG.instagram;
+else $("#igContacto").remove();
+
+/* Alias Mercado Pago */
+$("#aliasTexto").textContent = CONFIG.aliasMP;
+$("#copiarAlias").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(CONFIG.aliasMP); $("#copiarAlias").textContent = "Copiado"; }
+  catch(e) { $("#copiarAlias").textContent = "Copialo a mano"; }
+  setTimeout(() => $("#copiarAlias").textContent = "Copiar", 1800);
+});
+
+$("#anio").textContent = new Date().getFullYear();
+pintar();
+</script>
+</body>
+</html>
